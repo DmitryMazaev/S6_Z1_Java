@@ -13,8 +13,9 @@ public class Notebook
         this.HD = HD;
         this.OS = OS;
         this.Price = Price;
+        //System.out.println("Ноутбук RAM = " + RAM + ", HD = " + HD + ", OS = " + OS + " стоимостью " + Price + " рублей");
     }
-
+//
     public int getRAM()
     {
         return RAM;
@@ -58,7 +59,8 @@ public class Notebook
     @Override
     public String toString()
     {
-        return RAM + " " + HD + " " + OS + " " + Price;
+        //return RAM + " " + HD + " " + OS + " " + Price;
+        return String.format("Ноутбук с RAM %d Гб, HD %d, OS %s и стоимостью %d рублей", RAM, HD, OS, Price);
 
     }
 

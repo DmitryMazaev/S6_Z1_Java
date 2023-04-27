@@ -1,16 +1,22 @@
-import java.util.HashSet;
+
 
 public class Main 
 {
     public static void main (String[] args)
     {
-        Notebook notebook = new Notebook(8, 1024, "Win10", 30000);
-        Notebook notebook2 = new Notebook(6, 512, "Win8", 20000);
-        Notebook notebook3 = new Notebook(6, 512, "Win8", 20000);
-        HashSet<Notebook> notebookSet = new HashSet<>();
-        notebookSet.add(notebook);
-        notebookSet.add(notebook2);
-        notebookSet.add(notebook3);
-        System.out.println(notebookSet);
+        SearchNotebook searchNotebook = new SearchNotebook();
+        searchNotebook.addNotebook(new Notebook(8, 1024, "Win10", 30000))
+                        .addNotebook(new Notebook(6, 1024, "Win8", 20000))
+                        .addNotebook(new Notebook(8, 2048, "Win10", 25000))
+                        .addNotebook(new Notebook(16, 2048, "Win10", 40000));
+
+        for (int i = 0; i < searchNotebook.getList().size(); i++)
+        {
+            System.out.println(searchNotebook.getList().get(i));
+        }
+
+        Notebook found = searchNotebook.findNotebook("Win8");
+        System.out.println("Ноутбук по данным поиска: " + found);
+
     }
 }
